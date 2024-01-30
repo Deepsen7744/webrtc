@@ -12,11 +12,11 @@ export async function POST (req){
        
 
         
-        if(!firstName || !lastName || !email || !password || !confirmPassword || !otp){                //validate krlo means all inbox are filled or not;
+        if(!firstName || !lastName || !email || !password || !confirmPassword || !otp){                
         return NextResponse.json({ success: false, message: "all fields are required" });
 
         }
-        if(password !== confirmPassword){                                            //both password must be matched 
+        if(password !== confirmPassword){                                           
             return NextResponse.json({ 
                 success: false,
                  message: "Password and ConfirmPassword Value does not match" 
@@ -32,9 +32,9 @@ export async function POST (req){
             return NextResponse.json({ 
                 success: false,
                  message: "OTP NOT  Found" 
-            });                              //validate OTP , Lenght 0 so OTP not found
+            });                             
            }
-        else if(otp !== response[0].otp){                           // if otp entered by user != actual otp then PRINT Invalid OTP;
+        else if(otp !== response[0].otp){                          
             return NextResponse.json({ 
                 success: false,
                  message: "invalid otp" 

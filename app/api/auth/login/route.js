@@ -30,19 +30,19 @@ export async function POST (req){
                 email: user.email,
                 id: user._id,
             }
-            const token = jwt.sign(payload, process.env.JWT_SECRET, {         // generate token (combination of header , payload , signature) 
-                expiresIn:"20h",                                               // set expiry time;
+            const token = jwt.sign(payload, process.env.JWT_SECRET, {         
+                expiresIn:"20h",                                               
             });
             user.token = token;
             user.password= undefined;
 
-            const options = {                                               //create cookie and send response
+            const options = {                                               
                 expires: new Date(Date.now() + 3*24*60*60*1000),
                 httpOnly:true,
             }
 
            
-        
+        // set the cookies
             cookies().set("tokken", token, options);
             return NextResponse.json({
                 success:true,
