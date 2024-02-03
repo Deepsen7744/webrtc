@@ -13,7 +13,10 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') {
       return res.status(405).json({ success: false, message: 'Method Not Allowed' });
     }
-
+//   Time:{
+//   start: Date,
+//   end: Date,
+// },
     const {
       firstName,
       lastName,
@@ -22,6 +25,7 @@ export default async function handler(req, res) {
       confirmPassword,
       otp,
       skills,
+      Time
     } = req.body;
 
     if (
@@ -75,12 +79,15 @@ export default async function handler(req, res) {
       password: hashedPassword,
       skills, // Assuming skills is an array of tag IDs
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+      Time
+
     });
 
     if (newExpert) {
       return res.status(200).json({
         success: true,
         message: 'Expert account created successfully',
+        newExpert
       });
     }
   } catch (err) {

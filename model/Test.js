@@ -19,12 +19,12 @@ const questionsSchema = new mongoose.Schema({
   },
   correctAnswer: {
     type: String,
-  },
-  tag: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Tags',
-    required: true,
-  },
+  }
+  // tag: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Tags',
+  //   required: true,
+  // },
 })
 
 export const Question =

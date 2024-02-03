@@ -7,11 +7,11 @@ const feedbackSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
-    expertId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Expert',
-    },
-    feedbackText: String,
+    // expertId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'Expert',
+    // },
+    feedback: String,
     rating: {
       type: Number,
       min: 1,

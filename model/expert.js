@@ -34,17 +34,22 @@ const expertSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-        Skills: [
-			{
-            type:mongoose.Schema.Types.ObjectId,
-            ref: 'Tags',
-			}
-			]
+        // Skills: [
+		// 	{
+        //     type:mongoose.Schema.Types.ObjectId,
+        //     ref: 'Tags',
+		// 	}
+		// 	]
+		skills:{ 
+			type:[String]
+		 } 
           ,
-        avgRating:{
-            type: Number,
-            default: 0,
-        },
+		  ratingAndReviews: [
+			{
+				type:mongoose.Schema.Types.ObjectId,
+				ref:"feedback",
+			}
+		],
         Time:{
             start: Date,
             end: Date,
