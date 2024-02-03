@@ -59,6 +59,7 @@ const expertSchema = new mongoose.Schema(
 
 	   on_off:{
 		type:Boolean,
+		default: false,
 	   }
 
     
