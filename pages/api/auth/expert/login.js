@@ -1,5 +1,3 @@
-
-
 import { Expert } from '@/model/expert' // Update the path to your expert model
 import { compare } from 'bcryptjs'
 import jwt from 'jsonwebtoken'
@@ -37,6 +35,8 @@ export default async function handler(req, res) {
         message: 'Expert not registered',
       })
     }
+    // console.log(req.connection.remoteAddress);
+
     const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     if (ipAddress) {
       return res.status(200).json({
