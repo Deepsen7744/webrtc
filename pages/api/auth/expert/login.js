@@ -35,15 +35,10 @@ export default async function handler(req, res) {
         message: 'Expert not registered',
       })
     }
-    // console.log(req.connection.remoteAddress);
-
-    const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    if (ipAddress) {
-      return res.status(200).json({
-        success:true,
-        ipaddress:ipAddress
-      })
-    }
+    const ipAddress =
+      req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    expert.Ip = ipAddress
+    console.log(typeof expert.Ip)
 
     if (await compare(password, expert.password)) {
       const payload = {
