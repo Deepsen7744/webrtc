@@ -39,6 +39,9 @@ const expertSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    Ip: {
+      type: String,
+    },
     // Skills: [
     //   {
     //     type: mongoose.Schema.Types.ObjectId,
