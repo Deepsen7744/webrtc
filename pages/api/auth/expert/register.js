@@ -27,6 +27,7 @@ export default async function handler(req, res) {
       confirmPassword,
       otp,
       skills,
+      accountType,
       Time,
     } = req.body
 
@@ -79,6 +80,7 @@ export default async function handler(req, res) {
       firstName,
       lastName,
       email,
+      accountType,
       password: hashedPassword,
       skills, // Assuming skills is an array of tag IDs
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,

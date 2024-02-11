@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { Question } from './Question'
 
 const tagsSchema = new mongoose.Schema({
   name: {
@@ -8,7 +9,7 @@ const tagsSchema = new mongoose.Schema({
   questions: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Test',
+      ref: 'Question',
     },
   ],
 })

@@ -8,11 +8,17 @@ export default async function handler(req, res) {
 
   try {
     const tags = await Tags.find({}, '_id name') // Fetch only _id and name fields
-    console.log(tags)
+
+    // Customizing the tags data format
+    const formattedTags = tags.map((tag) => ({
+      id: tag._id,
+      tagName: tag.name,
+      // Add more fields here if needed
+    }))
 
     return res.status(200).json({
       success: true,
-      tags,
+      tags: formattedTags,
     })
   } catch (error) {
     console.error(error)

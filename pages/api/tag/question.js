@@ -1,6 +1,6 @@
 // pages/api/test/createQuestions.js
 
-import { Question } from '@/model/Test'
+import { Question } from '@/model/Question'
 import { Tags } from '@/model/Tags'
 import connectDB from '@/utils/db'
 import { NextResponse } from 'next/server'

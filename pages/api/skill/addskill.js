@@ -1,14 +1,28 @@
 import { Expert } from '@/model/expert'
 import connectDB from '@/utils/db'
+import { checkAuth } from '@/utils/feature'
 
 export default async function handler(req, res) {
   await connectDB()
 
   try {
-    const { expertId, newSkills } = await req.body
+    // console.log(req.Expert.id)
+    const { newSkills } = await req.body
+    // console.log(req.headers.authorization)
+    console.log('deep')
+    const user = await checkAuth(req, res)
 
-    console.log(expertId)
-    const expert = await Expert.findById(expertId)
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'login first',
+      })
+    }
+    // console.log(user.id)
+
+    // const token = req.headers.authorization?.replace('Bearer ', '')
+    console.log(req.header)
+    const expert = await Expert.findById(user.id)
     console.log(expert)
 
     if (!expert) {
@@ -17,6 +31,7 @@ export default async function handler(req, res) {
         message: 'Expert not found',
       })
     }
+    console.log(user.id)
     console.log(newSkills)
 
     expert.skills.push(...newSkills)
