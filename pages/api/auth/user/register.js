@@ -23,7 +23,6 @@ export default async function handler(req, res) {
       email,
       password,
       confirmPassword,
-      accountType,
       otp,
     } = req.body
 
@@ -67,7 +66,6 @@ export default async function handler(req, res) {
       lastName,
       email,
       password: hashedPassword,
-      accountType,
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
     })
 

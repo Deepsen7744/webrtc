@@ -46,7 +46,7 @@ export default async function handler(req, res) {
         role: user.accountType,
       }
 
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      const token = jwt.sign(payload, "123", {
         expiresIn: '20h',
       })
       req.headers.authorization = `Bearer ${token}`

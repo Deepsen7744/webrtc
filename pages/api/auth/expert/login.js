@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     const ipAddress =
       req.headers['x-forwarded-for'] || req.connection.remoteAddress
     expert.Ip = ipAddress
-    console.log(typeof expert.Ip)
+    // console.log(typeof expert.Ip)
 
     if (await compare(password, expert.password)) {
       const payload = {
@@ -70,7 +70,6 @@ export default async function handler(req, res) {
         success: true,
         token,
         expert,
-
         message: 'Logged in successfully',
       })
     } else {
