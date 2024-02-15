@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { login, sendotp } from '@/frontendservices/operations/autoapi'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
+import { setSignupData } from '@/frontendservices/slices/authSlice'
 const Signup = () => {
   const dispatch = useDispatch()
   const router = useRouter()
@@ -25,9 +26,16 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const signupData = {
+      ...formData,
+    }
+    console.log(signupData)
     try {
-      // dispatch(sendotp(formData.email, router))
-      dispatch(login(formData.email, formData.password, router))
+      console.log(signupData)
+
+      dispatch(setSignupData(signupData))
+      dispatch(sendotp(formData.email, router))
+      //   dispatch(login(formData.email,formData.password,router));yy
     } catch (error) {
       console.error('Error sending OTP:', error)
     }
