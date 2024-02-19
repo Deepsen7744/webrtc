@@ -13,6 +13,7 @@ const Signup = () => {
     email: '',
     password: '',
     confirmPassword: '',
+    accountType: 'Student',
   })
 
   const handleChange = (e) => {
@@ -29,10 +30,9 @@ const Signup = () => {
     const signupData = {
       ...formData,
     }
+    console.log('signup page ')
     console.log(signupData)
     try {
-      console.log(signupData)
-
       dispatch(setSignupData(signupData))
       dispatch(sendotp(formData.email, router))
       //   dispatch(login(formData.email,formData.password,router));yy
@@ -48,6 +48,7 @@ const Signup = () => {
       email: '',
       password: '',
       confirmPassword: '',
+      accountType: 'Student',
     })
   }
 

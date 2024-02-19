@@ -3,7 +3,8 @@ import { setLoading, setToken } from '@/frontendservices/slices/authSlice'
 import { apiConnector } from '../apiconnector'
 import { useRouter } from 'next/navigation'
 
-const { SENDOTP_API, SIGNUP_API, LOGIN_API } = endpoints
+const { SENDOTP_API, SIGNUP_API, SIGNUP_APIi, LOGIN_API, LOGIN_APIi } =
+  endpoints
 
 export function sendotp(email, route) {
   return async (dispatch) => {
@@ -24,30 +25,80 @@ export function sendotp(email, route) {
   }
 }
 
-export async function signup(
+export function signup(
   firstName,
   lastName,
   email,
   password,
   confirmPassword,
-  otp
+  otp,
+  router,
+  accountType
 ) {
-  try {
-    const response = await apiConnector('POST', SIGNUP_API, {
-      firstName,
-      lastName,
-      email,
-      password,
-      confirmPassword,
-      otp,
-    })
-    if (!response.data.success) {
-      throw new Error(response.data.message)
-    }
+  console.log('ritika')
+  return async (dispatch) => {
+    try {
+      dispatch(setLoading(true))
 
-    router.push('/login')
-  } catch (err) {
-    console.log(err)
+      const response = await apiConnector('POST', SIGNUP_API, {
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        otp,
+        accountType,
+      })
+      console.log(response)
+      console.log('after sign up')
+      // if (!response.data.success) {
+      //   throw new Error(response.data.message)
+      // }
+
+      console.log('acocoutn create  ho gya to jaoo na login pe')
+      router.push('/login/studentlogin')
+    } catch (err) {
+      console.log(err)
+    }
+    dispatch(setLoading(false))
+  }
+}
+export function signupi(
+  firstName,
+  lastName,
+  email,
+  password,
+  confirmPassword,
+  otp,
+  router,
+  accountType
+) {
+  console.log('ritika')
+  return async (dispatch) => {
+    try {
+      dispatch(setLoading(true))
+
+      const response = await apiConnector('POST', SIGNUP_APIi, {
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        otp,
+        accountType,
+      })
+      console.log(response)
+      console.log('after sign up')
+      // if (!response.data.success) {
+      //   throw new Error(response.data.message)
+      // }
+
+      console.log('acocoutn create  ho gya to jaoo na login pe')
+      router.push('/login/expertlogin')
+    } catch (err) {
+      console.log(err)
+    }
+    dispatch(setLoading(false))
   }
 }
 
@@ -66,13 +117,45 @@ export function login(email, password, router) {
       }
       // toast.success("Login Successful")
       dispatch(setToken(response.data.token))
+
       // const userImage = response.data?.user?.image ? response.data.user.image : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
       // dispatch(setUser({ ...response.data.user }))
-
+      console.log(response.data + 'ddeep')
       localStorage.setItem('token', JSON.stringify(response.data.token))
       // localStorage.setItem("user", JSON.stringify(response.data.user))
       // navigate("/")
-      router.push('/')
+      router.push('/dashboard/studentdashboard')
+    } catch (error) {
+      console.log('LOGIN API ERROR............', error)
+      toast.error('Login Failed')
+    }
+    dispatch(setLoading(false))
+    //   toast.dismiss(toastId)
+  }
+}
+export function logini(email, password, router) {
+  return async (dispatch) => {
+    dispatch(setLoading(true))
+    try {
+      const response = await apiConnector('POST', LOGIN_APIi, {
+        email,
+        password,
+      })
+      console.log('LOGIN API RESPONSE............', response)
+
+      if (!response.data.success) {
+        throw new Error(response.data.message)
+      }
+      // toast.success("Login Successful")
+      dispatch(setToken(response.data.token))
+
+      // const userImage = response.data?.user?.image ? response.data.user.image : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
+      // dispatch(setUser({ ...response.data.user }))
+      console.log(response.data + 'ddeep')
+      localStorage.setItem('token', JSON.stringify(response.data.token))
+      // localStorage.setItem("user", JSON.stringify(response.data.user))
+      // navigate("/")
+      router.push('/dashboard/expertdashboard')
     } catch (error) {
       console.log('LOGIN API ERROR............', error)
       toast.error('Login Failed')

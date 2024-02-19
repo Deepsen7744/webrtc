@@ -9,6 +9,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req, res) {
   console.log('error is coming ...')
+  // console.log(req.body)
   await connectDB()
   try {
     if (req.method !== 'POST') {
@@ -24,6 +25,7 @@ export default async function handler(req, res) {
       password,
       confirmPassword,
       otp,
+      accountType,
     } = req.body
 
     if (
@@ -32,7 +34,8 @@ export default async function handler(req, res) {
       !email ||
       !password ||
       !confirmPassword ||
-      !otp
+      !otp ||
+      !accountType
     ) {
       return res
         .status(400)
@@ -67,7 +70,11 @@ export default async function handler(req, res) {
       email,
       password: hashedPassword,
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+      accountType,
     })
+
+    console.log('account create succes')
+    // console.log(createUser)
 
     if (createUser) {
       return res

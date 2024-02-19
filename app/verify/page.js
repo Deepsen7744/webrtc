@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { BiArrowBack } from 'react-icons/bi'
 import { RxCountdownTimer } from 'react-icons/rx'
 import { useDispatch, useSelector } from 'react-redux'
-import { sendotp, signup } from '@/frontendservices/operations/autoapi'
+import { sendotp, signup, signupi } from '@/frontendservices/operations/autoapi'
 // import { useNavigate } from "react-router-dom";
 // import { sendotp } from '@/frontendservices/operations/autoapi'
 import { useRouter } from 'next/navigation'
@@ -17,7 +17,7 @@ function VerifyEmail() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(signupData)
+    console.log(signupData + 'formdata')
     // Only allow access of this route when user has filled the signup form
     if (!signupData) {
       router.push('/signup')
@@ -27,10 +27,42 @@ function VerifyEmail() {
   const handleVerifyAndSignup = (e) => {
     e.preventDefault()
     console.log(signupData)
-    const { firstName, lastName, email, password, confirmPassword, otp } =
-      signupData
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+      accountType,
+    } = signupData
 
-    dispatch(signup(firstName, lastName, email, password, confirmPassword, otp))
+    if (accountType === 'Instructor') {
+      dispatch(
+        signupi(
+          firstName,
+          lastName,
+          email,
+          password,
+          confirmPassword,
+          otp,
+          router,
+          accountType
+        )
+      )
+    } else {
+      dispatch(
+        signup(
+          firstName,
+          lastName,
+          email,
+          password,
+          confirmPassword,
+          otp,
+          router,
+          accountType
+        )
+      )
+    }
   }
 
   return (

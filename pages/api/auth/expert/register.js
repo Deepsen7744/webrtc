@@ -19,6 +19,8 @@ export default async function handler(req, res) {
     //   start: Date,
     //   end: Date,
     // },
+    console.log(req.body)
+    console.log('req.body dekho')
     const {
       firstName,
       lastName,
@@ -26,9 +28,7 @@ export default async function handler(req, res) {
       password,
       confirmPassword,
       otp,
-      skills,
       accountType,
-      Time,
     } = req.body
 
     if (
@@ -38,8 +38,7 @@ export default async function handler(req, res) {
       !password ||
       !confirmPassword ||
       !otp ||
-      !skills ||
-      !Time
+      !accountType
     ) {
       return res.status(400).json({
         success: false,
@@ -82,9 +81,9 @@ export default async function handler(req, res) {
       email,
       accountType,
       password: hashedPassword,
-      skills, // Assuming skills is an array of tag IDs
+      // skills, // Assuming skills is an array of tag IDs
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
-      Time,
+      // Time,
     })
 
     if (newExpert) {
