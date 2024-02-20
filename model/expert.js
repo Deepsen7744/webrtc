@@ -1,9 +1,6 @@
 import mongoose from 'mongoose'
-
-// Define the user schema using the Mongoose Schema constructor
 const expertSchema = new mongoose.Schema(
   {
-    // Define the name field with type String, required, and trimmed
     firstName: {
       type: String,
       required: true,
@@ -59,8 +56,34 @@ const expertSchema = new mongoose.Schema(
     ],
 
     Time: {
-      start: Date,
-      end: Date,
+      start: {
+        hour: {
+          type: Number,
+          required: true,
+        },
+        minute: {
+          type: Number,
+          required: true,
+        },
+        second: {
+          type: Number,
+          required: true,
+        },
+        end: {
+          hour: {
+            type: Number,
+            required: true,
+          },
+          minute: {
+            type: Number,
+            required: true,
+          },
+          second: {
+            type: Number,
+            required: true,
+          },
+        },
+      },
     },
 
     count: {

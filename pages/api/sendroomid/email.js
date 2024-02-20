@@ -5,27 +5,52 @@ import otpGenerator from 'otp-generator'
 import mailSender from '@/utils/mailsender'
 import emailTemplate from '@/templates/otpsend'
 
+// ***********************for time calculation with respect to indian**************************************
+function getCurrentTimeInIndia() {}
+
 export default async function handler(req, res) {
   // console.log("error is coming ...");
   await connectDB()
-
+  // hour: {
+  //   type: Number,
+  //   required: true,
+  // },
+  // minute: {
+  //   type: Number,
+  //   required: true,
+  // },
+  // second: {
+  //   type: Number,
+  //   required: true,
   try {
     if (req.method !== 'POST') {
       return res
         .status(405)
         .json({ success: false, message: 'Method Not Allowed' })
     }
+    // ***********************for time calculation with respect to indian**************************************
+    const currentDate = new Date()
+    currentDate.setUTCHours(currentDate.getUTCHours() + 5)
+    currentDate.setUTCMinutes(currentDate.getUTCMinutes() + 30)
+
+    const hour = currentDate.getUTCHours()
+    const minute = currentDate.getUTCMinutes()
+    const second = currentDate.getUTCSeconds()
+
+    console.log(hour, minute, second)
+
     const { skills } = req.body
     console.log(skills)
-    const currentTime = new Date()
-    console.log(currentTime)
+    // const currentTime = new Date()
+    console.log(hour, minute, second)
     const experts = await Expert.find({
       skills: { $in: skills },
 
-      'Time.start': { $lte: currentTime },
-      'Time.end': { $gte: currentTime },
+      'Time.start.hour': { $lte: hour },
+      'Time.start.minute': { $lte: minute },
+      'Time.end.hour': { $gte: hour },
+      'Time.end.minute': { $gte: minute },
     })
-    console.log(currentTime)
     var roomid = otpGenerator.generate(6, {
       upperCaseAlphabets: false,
       lowerCaseAlphabets: false,
