@@ -1,9 +1,11 @@
-*{
-  margin: 0;
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+*{
+  margin: 0;
+}
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -34,4 +36,4 @@ body {
     text-wrap: balance;
   }
 }
-/* land */
+land */

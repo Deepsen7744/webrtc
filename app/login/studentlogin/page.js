@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 import { login, sendotp } from '@/frontendservices/operations/autoapi'
 // import { login } from '../../frontendservices/operations/autoapi'
 import Link from 'next/link'
+import Image from 'next/image'
+import image1 from '../../../public/images/loginpageimage.svg'
 
 function LoginForm() {
   const dispatch = useDispatch()
@@ -33,13 +35,19 @@ function LoginForm() {
   }
 
   return (
-    <form
+    <div className='flex h-screen w-screen'>
+      <div className='mt-[5rem] ml-[5rem]'>
+        <Image src={image1} height={650} width={650}></Image>
+      </div>
+
+      <form
       onSubmit={handleOnSubmit}
-      className="mt-6 flex w-full flex-col gap-y-4"
-    >
-      <label className="w-full">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-          Email Address <sup className="text-pink-200">*</sup>
+      className="border p-[3rem] mt-[10rem] ml-[8rem] mb-[7rem] rounded-lg shadow-2xl flex flex-col gap-5 w-[35%]"
+      >
+      <label className="flex flex-col gap-3">
+        <h1 className='text-[2rem]'>Welcome Back</h1>
+        <p className="text-[0.875rem] leading-[1.375rem] text-richblack-5 mt-4">
+          Email Address <sup className="text-red-500">*</sup>
         </p>
         <input
           required
@@ -48,12 +56,12 @@ function LoginForm() {
           value={email}
           onChange={handleOnChange}
           placeholder="Enter email address"
-          className="form-style w-full"
+          className="form-style rounded-[0.5rem] p-[4px] border"
         />
       </label>
       <label className="relative">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-          Password <sup className="text-pink-200">*</sup>
+        <p className="text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          Password <sup className="text-red-500">*</sup>
         </p>
         <input
           required
@@ -62,11 +70,11 @@ function LoginForm() {
           value={password}
           onChange={handleOnChange}
           placeholder="Enter Password"
-          className="form-style w-full !pr-10"
+          className="form-style rounded-[0.5rem] p-[4px] mt-3 border w-full"
         />
         <span
           onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+          className="absolute right-3 top-[2.4rem] z-[10] cursor-pointer"
         >
           {showPassword ? (
             <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
@@ -75,18 +83,20 @@ function LoginForm() {
           )}
         </span>
         <Link href="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+          <p className="mt-2 ml-auto max-w-max text-xs text-richblack-5">
             Forgot Password
           </p>
         </Link>
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+        className="border bg-purple-500 hover:bg-purple-900 transition text-white p-[8px] rounded-[0.5rem] mt-8"
       >
         Sign In
       </button>
-    </form>
+      </form>
+    </div>
+    
   )
 }
 
