@@ -6,18 +6,18 @@ import logo from "../../public/images/LOGO.png";
 import teacher from '../../public/images/teacher2.webp'
 import pic from '../../public/images/student1.png'
 
-const login = () => {
+const signup = () => {
 
   return (
     <div className='h-screen w-screen overflow-x-hidden'>
         <div className='flex justify-center items-center'>
         
-            <nav className="flex z-50 justify-between items-center h-[3rem] fixed w-[98.9%] top-0 shadow-md bg-white">
+            <nav className="flex z-50 justify-between items-center h-[3rem] fixed w-[98.9%] top-0 bg-white shadow-md" >
                 <div><Image src={logo} className='ml-16 w-[14rem]' /></div>
                 <div className='mr-16 font-sans flex justify-center items-center'>
                     <a className='cursor-pointer mr-10 text-l font-semibold'>About</a>
                     <div>
-                        <a href='Signup' className='cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500'>Signup</a>
+                        <a href='Login' className='cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500'>Login</a>
                     </div>
                 </div>
             </nav>
@@ -33,12 +33,12 @@ const login = () => {
                     Engage, inspire, and guide learners with enthusiasm. 
                     Foster a supportive environment. Share knowledge, encourage curiosity, and cultivate critical thinking. 
                 </p>
-                <Link href="Login/studentlogin">
-                    <button className='border border-purple-500 min-w-[180px] p-3 mt-3 bg-purple-500 text-white rounded leading-5 text-[14px] font-bold'>Login</button>
-                </Link>     
-                <p className='text-[1rem] mt-[-15px]'>Don't have an account?</p>
-                <Link href='Signup' className='mt-[-1.5rem]'>
-                    <button className='font-medium underline hover:text-purple-500 transition'>Signup</button>
+                <Link href="Signup/studentsignup">
+                    <button className='border border-purple-500 min-w-[180px] p-3 mt-3 bg-purple-500 text-white rounded leading-5 text-[14px] font-bold'>Signup</button>
+                </Link>        
+                <p className='text-[1rem] mt-[-15px]'>Already have an account?</p>
+                <Link href='Login' className='mt-[-1.5rem]'>
+                    <button className='font-medium underline hover:text-purple-500 transition'>Login</button>
                 </Link>
             </div>
 
@@ -54,13 +54,14 @@ const login = () => {
                     Engage, inspire, and guide learners with enthusiasm. 
                     Foster a supportive environment. Share knowledge, encourage curiosity, and cultivate critical thinking. 
                 </p>
-                <Link href="Login/studentlogin">
-                    <button className='border border-gray-800 min-w-[180px] p-3 mt-3 bg-[#fff] text-gray-800 font-bold rounded leading-5 text-[14px]'>Login</button>
+                <Link href="Signup/studentsignup">
+                    <button className='border border-gray-800 min-w-[180px] p-3 mt-3 bg-[#fff] text-gray-800 font-bold rounded leading-5 text-[14px]'>Signup</button>
                 </Link>
-                <p className='text-[1rem] mt-[-15px]'>Don't have an account?</p>
-                <Link href='Signup' className='mt-[-1.5rem]'>
-                    <button className='font-medium underline hover:text-purple-500 transition'>Signup</button>
-                </Link>
+                <p className='text-[1rem] mt-[-15px]'>Already have an account?</p>
+                <Link href='Login' className='mt-[-1.5rem]'>
+                    <button className='font-medium underline hover:text-purple-500 transition'>Login</button>
+                </Link>                
+                {/* <button className='border border-[#1BA94C] min-w-[180px] p-3 bg-[#1BA94C] text-white rounded leading-5 text-[14px]'>Login</button> */}
             </div>    
         </div>
         <footer className=" w-full bg-gray-800 text-white p-8">
@@ -114,4 +115,4 @@ const login = () => {
   )
 }
 
-export default login
+export default signup

@@ -37,8 +37,8 @@ export default function Home() {
           <a className="cursor-pointer mr-10 text-l font-semibold">About</a>
           {signup ? (
             <div>
-              <a className="cursor-pointer mr-10 text-l font-semibold">Login</a>
-              <a className="cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500">
+              <a href='Login' className="cursor-pointer mr-10 text-l font-semibold">Login</a>
+              <a href='Signup' className="cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500">
                 Signup
               </a>
             </div>
