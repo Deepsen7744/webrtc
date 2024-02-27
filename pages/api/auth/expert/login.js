@@ -46,7 +46,7 @@ export default async function handler(req, res) {
         id: expert._id,
         role: expert.accountType,
       }
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      const token = jwt.sign(payload, "secret", {
         expiresIn: '20h',
       })
       req.headers.authorization = `Bearer ${token}`
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       cookieSetter(res, token, true)
 
       expert.token = token
-      expert.passworda = undefined
+      expert.password = undefined
       // console.log(expert)
 
       const options = {

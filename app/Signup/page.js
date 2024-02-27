@@ -17,7 +17,7 @@ const signup = () => {
                 <div className='mr-16 font-sans flex justify-center items-center'>
                     <a className='cursor-pointer mr-10 text-l font-semibold'>About</a>
                     <div>
-                        <a href='Login' className='cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500'>Login</a>
+                        <a href='login' className='cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500'>Login</a>
                     </div>
                 </div>
             </nav>

@@ -17,7 +17,7 @@ const login = () => {
                 <div className='mr-16 font-sans flex justify-center items-center'>
                     <a className='cursor-pointer mr-10 text-l font-semibold'>About</a>
                     <div>
-                        <a href='Signup' className='cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500'>Signup</a>
+                        <a href='signup' className='cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500'>Signup</a>
                     </div>
                 </div>
             </nav>
@@ -33,11 +33,11 @@ const login = () => {
                     Engage, inspire, and guide learners with enthusiasm. 
                     Foster a supportive environment. Share knowledge, encourage curiosity, and cultivate critical thinking. 
                 </p>
-                <Link href="Login/studentlogin">
+                <Link href="login/expertlogin">
                     <button className='border border-purple-500 min-w-[180px] p-3 mt-3 bg-purple-500 text-white rounded leading-5 text-[14px] font-bold'>Login</button>
                 </Link>     
                 <p className='text-[1rem] mt-[-15px]'>Don't have an account?</p>
-                <Link href='Signup' className='mt-[-1.5rem]'>
+                <Link href='signup' className='mt-[-1.5rem]'>
                     <button className='font-medium underline hover:text-purple-500 transition'>Signup</button>
                 </Link>
             </div>
@@ -54,11 +54,11 @@ const login = () => {
                     Engage, inspire, and guide learners with enthusiasm. 
                     Foster a supportive environment. Share knowledge, encourage curiosity, and cultivate critical thinking. 
                 </p>
-                <Link href="Login/studentlogin">
+                <Link href="login/studentlogin">
                     <button className='border border-gray-800 min-w-[180px] p-3 mt-3 bg-[#fff] text-gray-800 font-bold rounded leading-5 text-[14px]'>Login</button>
                 </Link>
                 <p className='text-[1rem] mt-[-15px]'>Don't have an account?</p>
-                <Link href='Signup' className='mt-[-1.5rem]'>
+                <Link href='signup' className='mt-[-1.5rem]'>
                     <button className='font-medium underline hover:text-purple-500 transition'>Signup</button>
                 </Link>
             </div>    

@@ -9,3 +9,7 @@ export const endpoints = {
   RESETPASSTOKEN_API: BASE_URL + '/auth/reset-password-token',
   RESETPASSWORD_API: BASE_URL + '/auth/reset-password',
 }
+
+export const tagsEndpoints = {
+  GET_TAGS_API: BASE_URL + '/api/tag/alltags',
+}

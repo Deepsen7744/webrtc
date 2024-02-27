@@ -141,7 +141,7 @@ const Signup = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    accountType: 'Student',
+    accountType: 'Instructor',
   })
 
   const handleChange = (e) => {
@@ -176,7 +176,7 @@ const Signup = () => {
       email: '',
       password: '',
       confirmPassword: '',
-      accountType: 'Student',
+      accountType: 'Instructor',
     })
   }
 
