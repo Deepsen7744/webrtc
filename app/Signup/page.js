@@ -33,11 +33,11 @@ const signup = () => {
                     Engage, inspire, and guide learners with enthusiasm. 
                     Foster a supportive environment. Share knowledge, encourage curiosity, and cultivate critical thinking. 
                 </p>
-                <Link href="Signup/studentsignup">
+                <Link href="signup/expertsignup">
                     <button className='border border-purple-500 min-w-[180px] p-3 mt-3 bg-purple-500 text-white rounded leading-5 text-[14px] font-bold'>Signup</button>
                 </Link>        
                 <p className='text-[1rem] mt-[-15px]'>Already have an account?</p>
-                <Link href='Login' className='mt-[-1.5rem]'>
+                <Link href='login/expertlogin' className='mt-[-1.5rem]'>
                     <button className='font-medium underline hover:text-purple-500 transition'>Login</button>
                 </Link>
             </div>
@@ -54,11 +54,11 @@ const signup = () => {
                     Engage, inspire, and guide learners with enthusiasm. 
                     Foster a supportive environment. Share knowledge, encourage curiosity, and cultivate critical thinking. 
                 </p>
-                <Link href="Signup/studentsignup">
+                <Link href="signup/studentsignup">
                     <button className='border border-gray-800 min-w-[180px] p-3 mt-3 bg-[#fff] text-gray-800 font-bold rounded leading-5 text-[14px]'>Signup</button>
                 </Link>
                 <p className='text-[1rem] mt-[-15px]'>Already have an account?</p>
-                <Link href='Login' className='mt-[-1.5rem]'>
+                <Link href='login/studentlogin' className='mt-[-1.5rem]'>
                     <button className='font-medium underline hover:text-purple-500 transition'>Login</button>
                 </Link>                
                 {/* <button className='border border-[#1BA94C] min-w-[180px] p-3 bg-[#1BA94C] text-white rounded leading-5 text-[14px]'>Login</button> */}

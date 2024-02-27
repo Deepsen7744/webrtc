@@ -1,6 +1,7 @@
 // server component
 import "./globals.css"
 import React from 'react'
+
 import Image from 'next/image'
 import laptop from '../public/images/laptop.png'
 import logo from '../public/images/LOGO.png'
@@ -20,6 +21,7 @@ import { RiFullscreenFill } from 'react-icons/ri'
 import { LuScreenShare } from 'react-icons/lu'
 import { TbChalkboard } from 'react-icons/tb'
 import { TbCode } from 'react-icons/tb'
+import Link from 'next/link';
 import { HiOutlineAcademicCap } from 'react-icons/hi'
 
 const ClientComponent = dynamic(() => import('../app/typer'), { ssr: false })
@@ -37,10 +39,12 @@ export default function Home() {
           <a className="cursor-pointer mr-10 text-l font-semibold">About</a>
           {signup ? (
             <div>
-              <a href='Login' className="cursor-pointer mr-10 text-l font-semibold">Login</a>
-              <a href='Signup' className="cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500">
+                <Link href="/login" className="cursor-pointer mr-10 text-l font-semibold" >Login
+              {/* <a href='Login' className="cursor-pointer mr-10 text-l font-semibold">Login</a> */}
+              </Link>
+              <Link href="/signup" className="cursor-pointer text-center text-l font-semibold py-2 px-3 rounded-full text-white bg-purple-500">
                 Signup
-              </a>
+              </Link>
             </div>
           ) : (
             <div>

@@ -66,6 +66,7 @@ const expertSchema = new mongoose.Schema(
           
           default:0,
         },
+      },
         end: {
           hour: {
             type: Number,
@@ -81,7 +82,6 @@ const expertSchema = new mongoose.Schema(
            
             default:0,
           },
-        },
       },
     },
 
