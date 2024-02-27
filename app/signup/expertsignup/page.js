@@ -4,6 +4,9 @@ import { login, sendotp } from '@/frontendservices/operations/autoapi'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { setSignupData } from '@/frontendservices/slices/authSlice'
+import Image from 'next/image'
+import image from '../../../public/images/signupformimage.svg' 
+
 const Signup = () => {
   const dispatch = useDispatch()
   const router = useRouter()
@@ -111,27 +114,6 @@ const Signup = () => {
           />
         </label>
         <br />
-        <label>
-          Select a start time :
-          <input
-            type="text"
-            name='start'
-            value={formData.start}
-            onChange={handleChange}
-            placeholder='start time ...'
-          />
-        </label>
-        <br/>
-        <label>
-          Select a end time :
-          <input
-            type="text"
-            name='end'
-            value={formData.end}
-            onChange={handleChange}
-            placeholder='end time ...'
-          />
-        </label>
         <button type="submit">Sign Up</button>
       </form>
     </div>
