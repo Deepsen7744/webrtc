@@ -39,12 +39,7 @@ const expertSchema = new mongoose.Schema(
     Ip: {
       type: String,
     },
-    // Skills: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Tags',
-    //   },
-    // ],
+
     skills: {
       type: [String],
     },
@@ -63,11 +58,13 @@ const expertSchema = new mongoose.Schema(
         },
         minute: {
           type: Number,
-          required: true,
+         
+          default:0,
         },
         second: {
           type: Number,
-          required: true,
+          
+          default:0,
         },
         end: {
           hour: {
@@ -76,11 +73,13 @@ const expertSchema = new mongoose.Schema(
           },
           minute: {
             type: Number,
-            required: true,
+           
+            default:0,
           },
           second: {
             type: Number,
-            required: true,
+           
+            default:0,
           },
         },
       },

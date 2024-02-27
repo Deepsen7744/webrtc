@@ -34,6 +34,8 @@ function VerifyEmail() {
       password,
       confirmPassword,
       accountType,
+      start,
+      end,
     } = signupData
 
     if (accountType === 'Instructor') {
@@ -46,7 +48,9 @@ function VerifyEmail() {
           confirmPassword,
           otp,
           router,
-          accountType
+          accountType,
+          start,
+          end
         )
       )
     } else {

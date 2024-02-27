@@ -71,13 +71,23 @@ export function signupi(
   confirmPassword,
   otp,
   router,
-  accountType
+  accountType,
+  start,
+  end
 ) {
   console.log('ritika')
   return async (dispatch) => {
     try {
       dispatch(setLoading(true))
-
+      console.log(firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        otp,
+        accountType,
+        start,
+        end);
       const response = await apiConnector('POST', SIGNUP_APIi, {
         firstName,
         lastName,
@@ -86,6 +96,8 @@ export function signupi(
         confirmPassword,
         otp,
         accountType,
+        start,
+        end
       })
       console.log(response)
       console.log('after sign up')

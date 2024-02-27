@@ -14,6 +14,8 @@ const Signup = () => {
     password: '',
     confirmPassword: '',
     accountType: 'Instructor',
+    start:'',
+    end:'',
   })
 
   const handleChange = (e) => {
@@ -33,6 +35,7 @@ const Signup = () => {
     console.log('signup page ')
     console.log(signupData)
     try {
+    
       dispatch(setSignupData(signupData))
       dispatch(sendotp(formData.email, router))
       //   dispatch(login(formData.email,formData.password,router));yy
@@ -49,6 +52,8 @@ const Signup = () => {
       password: '',
       confirmPassword: '',
       accountType: 'Instructor',
+      start:'',
+      end: '',
     })
   }
 
@@ -106,6 +111,27 @@ const Signup = () => {
           />
         </label>
         <br />
+        <label>
+          Select a start time :
+          <input
+            type="text"
+            name='start'
+            value={formData.start}
+            onChange={handleChange}
+            placeholder='start time ...'
+          />
+        </label>
+        <br/>
+        <label>
+          Select a end time :
+          <input
+            type="text"
+            name='end'
+            value={formData.end}
+            onChange={handleChange}
+            placeholder='end time ...'
+          />
+        </label>
         <button type="submit">Sign Up</button>
       </form>
     </div>

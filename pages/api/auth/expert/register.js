@@ -29,6 +29,8 @@ export default async function handler(req, res) {
       confirmPassword,
       otp,
       accountType,
+      start,
+      end
     } = req.body
 
     if (
@@ -38,7 +40,9 @@ export default async function handler(req, res) {
       !password ||
       !confirmPassword ||
       !otp ||
-      !accountType
+      !accountType ||
+      !start||
+      !end
     ) {
       return res.status(400).json({
         success: false,
@@ -81,6 +85,14 @@ export default async function handler(req, res) {
       email,
       accountType,
       password: hashedPassword,
+      Time: {
+        start: {
+          hour: start, 
+        },
+        end:{
+          hour: end,
+        }
+      },
       // skills, // Assuming skills is an array of tag IDs
       image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
       // Time,

@@ -1,5 +1,5 @@
 // server component
-
+import "./globals.css"
 import React from 'react'
 import Image from 'next/image'
 import laptop from '../public/images/laptop.png'
